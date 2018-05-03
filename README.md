@@ -43,7 +43,18 @@ Training algorithm:
       end for
     end for
     return w - u/c, b - β/c
-    
+### Implementation Details
+
+Both algorithms take preprocessed inputs.
+Reviews are stripped off numbers, punctuations and stopwords. Further, top 11 frequently occuring words are removed.
+A model file is developed that contains the word counts of each word occuring in True/Fake or Pos/Neg 
+The feature vector for each review in test consits of words in the review (after removing stop words, punctuations, numbers and top 11 words if present)
+
+#### Some facts:-
+
+The python implementation uses dictionaries to store values.
+
+The perceptron algorithm is highly influenced by order of inputs, and dictionaries do not actively preserve this order. Thus using OrderedDict from collections package is necessary to ensure order is maintained.
 ## Usage
 
     python3 perceplearn.py <inputfile-traindata>
